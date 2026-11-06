@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "next_id": 13,
+  "notes": [
+    {
+      "id": "N001",
+      "text": "My Python test is on Friday at 10 AM.",
+      "category": "Study",
+      "confidence": 0.7666,
+      "uncertain": false,
+      "created_at": "2026-11-04T07:05:07.465825+00:00",
+      "updated_at": "2026-11-04T07:05:07.465825+00:00"
+    },
+    {
+      "id": "N002",
+      "text": "Pay the electricity bill by the 28th.",
+      "category": "Money",
+      "confidence": 0.759,
+      "uncertain": false,
+      "created_at": "2026-11-04T07:05:07.466834+00:00",
+      "updated_at": "2026-11-04T07:05:07.466834+00:00"
+    },
+    {
+      "id": "N003",
+      "text": "Our flight to Delhi is on Monday morning.",
+      "category": "Travel",
+      "confidence": 0.5077,
+      "uncertain": false,
+      "created_at": "2026-11-04T07:05:07.466834+00:00",
+      "updated_at": "2026-11-04T07:05:07.466834+00:00"
+    },
+    {
+      "id": "N004",
+      "text": "Buy a new laptop stand this weekend.",
+      "category": "Shopping",
+      "confidence": 0.6091,
+      "uncertain": false,
+      "created_at": "2026-11-04T07:05:07.467854+00:00",
+      "updated_at": "2026-11-04T07:05:07.467854+00:00"
+    },
+    {
+      "id": "N005",
+      "text": "My statistics assignment is due next Wednesday.",
+      "category": "Study",
+      "confidence": 0.6308,
+      "uncertain": false,
+      "created_at": "2026-11-04T07:05:07.467854+00:00",
+      "updated_at": "2026-11-04T07:05:07.467854+00:00"
+    },
+    {
+      "id": "N006",
+      "text": "Move ₹2,000 into the savings account this month.",
+      "category": "Money",
+      "confidence": 0.7616,
+      "uncertain": false,
+      "created_at": "2026-11-04T07:05:07.468832+00:00",
+      "updated_at": "2026-11-04T07:05:07.468832+00:00"
+    },
+    {
+      "id": "N007",
+      "text": "The hotel in Jaipur is booked for Saturday.",
+      "category": "Travel",
+      "confidence": 0.5278,
+      "uncertain": false,
+      "created_at": "2026-11-04T07:05:07.469833+00:00",
+      "updated_at": "2026-11-04T07:05:07.469833+00:00"
+    },
+    {
+      "id": "N008",
+      "text": "Return the defective headphones before Thursday.",
+      "category": "Shopping",
+      "confidence": 0.5059,
+      "uncertain": false,
+      "created_at": "2026-11-04T07:05:07.469833+00:00",
+      "updated_at": "2026-11-04T07:05:07.469833+00:00"
+    },
+    {
+      "id": "N009",
+      "text": "The chemistry lab report is due Tuesday.",
+      "category": "Study",
+      "confidence": 0.7594,
+      "uncertain": false,
+      "created_at": "2026-11-04T07:05:07.470834+00:00",
+      "updated_at": "2026-11-04T07:05:07.470834+00:00"
+    },
+    {
+      "id": "N010",
+      "text": "The rent is due on the 1st of next month.",
+      "category": "Money",
+      "confidence": 0.6334,
+      "uncertain": false,
+      "created_at": "2026-11-04T07:05:07.471280+00:00",
+      "updated_at": "2026-11-04T07:05:07.471280+00:00"
+    },
+    {
+      "id": "N011",
+      "text": "Reach the railway station at 7 AM for our trip.",
+      "category": "Travel",
+      "confidence": 0.456,
+      "uncertain": false,
+      "created_at": "2026-11-04T07:05:07.472870+00:00",
+      "updated_at": "2026-11-04T07:05:07.472870+00:00"
+    },
+    {
+      "id": "N012",
+      "text": "Buy rice, eggs, and vegetables from the supermarket.",
+      "category": "Shopping",
+      "confidence": 0.7094,
+      "uncertain": false,
+      "created_at": "2026-11-04T07:05:07.473936+00:00",
+      "updated_at": "2026-11-04T07:05:07.473936+00:00"
+    }
+  ]
+}

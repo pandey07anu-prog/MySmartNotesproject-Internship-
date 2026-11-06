@@ -1,0 +1,108 @@
+[
+  {
+    "query_id": "Q01",
+    "query": "Python test Friday 10 AM",
+    "expected_note_ids": ["N001"],
+    "query_type": "direct_keyword",
+    "description": "Direct keyword query targeting Python test note."
+  },
+  {
+    "query_id": "Q02",
+    "query": "When is my statistics assignment due next Wednesday?",
+    "expected_note_ids": ["N005"],
+    "query_type": "natural_language_question",
+    "description": "Natural language question targeting statistics assignment note."
+  },
+  {
+    "query_id": "Q03",
+    "query": "savings account transfer ₹2,000",
+    "expected_note_ids": ["N006"],
+    "query_type": "keyword_with_currency",
+    "description": "Keyword query containing Indian Rupee symbol and numbers."
+  },
+  {
+    "query_id": "Q04",
+    "query": "flight departure to Delhi on Monday morning",
+    "expected_note_ids": ["N003"],
+    "query_type": "natural_language_query",
+    "description": "Natural language query targeting Delhi flight note."
+  },
+  {
+    "query_id": "Q05",
+    "query": "hotel room booked in Jaipur for Saturday",
+    "expected_note_ids": ["N007"],
+    "query_type": "partial_keyword",
+    "description": "Keyword query targeting Jaipur hotel note."
+  },
+  {
+    "query_id": "Q06",
+    "query": "chemistry laboratory report submission Tuesday",
+    "expected_note_ids": ["N009"],
+    "query_type": "paraphrase",
+    "description": "Paraphrase query targeting chemistry lab report note."
+  },
+  {
+    "query_id": "Q07",
+    "query": "apartment rent payment due on 1st of next month",
+    "expected_note_ids": ["N010"],
+    "query_type": "extra_words",
+    "description": "Query with extra descriptive words targeting rent note."
+  },
+  {
+    "query_id": "Q08",
+    "query": "reach railway station by 7 AM for our travel trip",
+    "expected_note_ids": ["N011"],
+    "query_type": "natural_language_query",
+    "description": "Natural language travel query targeting railway station note."
+  },
+  {
+    "query_id": "Q09",
+    "query": "buy fresh eggs rice and vegetables at supermarket",
+    "expected_note_ids": ["N012"],
+    "query_type": "different_word_order",
+    "description": "Reordered shopping list query targeting supermarket note."
+  },
+  {
+    "query_id": "Q10",
+    "query": "buy a new laptop stand this weekend",
+    "expected_note_ids": ["N004"],
+    "query_type": "exact_phrase",
+    "description": "Exact phrase query targeting laptop stand purchase note."
+  },
+  {
+    "query_id": "Q11",
+    "query": "pay the electricity utility bill by the 28th",
+    "expected_note_ids": ["N002"],
+    "query_type": "extra_words",
+    "description": "Query with extra utility words targeting electricity bill note."
+  },
+  {
+    "query_id": "Q12",
+    "query": "return the defective headphones before Thursday",
+    "expected_note_ids": ["N008"],
+    "query_type": "exact_phrase",
+    "description": "Exact phrase query targeting headphone return note."
+  },
+  {
+    "query_id": "Q13",
+    "query": "settle power utility invoice",
+    "expected_note_ids": ["N002"],
+    "query_type": "vocabulary_mismatch",
+    "description": "Vocabulary mismatch for N002: power utility invoice vs electricity bill with zero content word overlap."
+  },
+  {
+    "query_id": "Q14",
+    "query": "purchase ergonomic computer riser",
+    "expected_note_ids": ["N004"],
+    "query_type": "vocabulary_mismatch",
+    "description": "Vocabulary mismatch for N004: ergonomic computer riser vs laptop stand with zero content word overlap."
+  },
+  {
+    "query_id": "Q15",
+    "query": "send back damaged audio earphones",
+    "expected_note_ids": ["N008"],
+    "query_type": "vocabulary_mismatch",
+    "description": "Vocabulary mismatch for N008: damaged audio earphones vs defective headphones with zero content word overlap."
+  }
+]
+

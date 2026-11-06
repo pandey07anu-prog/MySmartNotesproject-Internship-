@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Notes Assistant — Your thoughts, intelligently organized.</title>
+  <meta name="description" content="A complete AI-powered SaaS platform for intelligent personal note organization, powered by genuine machine learning." />
+  
+  <!-- Apple-inspired typography & styling -->
+  <link rel="stylesheet" href="/static/css/style.css?v=4.4" />
+  <link rel="stylesheet" href="/static/css/auth.css?v=4.4" />
+  <link rel="stylesheet" href="/static/css/preloader.css?v=5.1" />
+  
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238C78EA'><circle cx='12' cy='12' r='10'/></svg>" />
+</head>
+<body>
+  <!-- ========================================================================
+       SIMPLE & ELEGANT PRELOADER
+       ======================================================================== -->
+  <div id="cinematic-3d-preloader" class="simple-preloader-root">
+    <div class="simple-preloader-content">
+      <div class="simple-preloader-icon-wrap">
+        <div class="simple-preloader-pulse"></div>
+        <div class="simple-preloader-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="rgba(255, 255, 255, 0.22)"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <circle cx="10" cy="9" r="1.3" fill="#FFFFFF"></circle>
+          </svg>
+        </div>
+      </div>
+
+      <h1 class="simple-preloader-title">Smart Notes Assistant</h1>
+      <p class="simple-preloader-tagline">Think. Organize. Remember.</p>
+
+      <div class="simple-preloader-track">
+        <div class="simple-preloader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ambient Interactive 3D Background Particle Constellation -->
+  <canvas id="interactive-3d-bg" style="position:fixed; inset:0; pointer-events:none; z-index:0; width:100%; height:100%;"></canvas>
+
+  <!-- ========================================================================
+       1. PUBLIC LANDING PAGE (Unauthenticated View)
+       ======================================================================== -->
+  <div id="public-landing">
+    <!-- Navigation Bar -->
+    <header class="landing-nav glass">
+      <div class="brand-logo" onclick="window.location.hash='#landing'">
+        <div class="logo-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <span class="logo-text">Smart Notes Assistant</span>
+      </div>
+      <div class="landing-nav-actions">
+        <a href="#login" class="btn btn-secondary btn-sm">Sign In</a>
+        <a href="#register" class="btn btn-primary btn-sm">Get Started</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1 class="hero-headline">
+        Your thoughts deserve a <span class="hero-gradient-text">smarter home.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Capture everyday thoughts, organize them intelligently, and find what matters in seconds. Powered by trained TF-IDF classification and real-time deadline tracking.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#register" class="btn btn-primary btn-hero-cta">Get Started Free</a>
+        <a href="#login" class="btn btn-secondary btn-hero-cta">Sign In to Workspace</a>
+      </div>
+
+      <!-- Hero Preview Showcase with Ambient Glow and Apple-Style 3D Tilt -->
+      <div class="hero-preview-wrapper">
+        <div class="preview-ambient-glow"></div>
+
+        <div class="product-preview-card" id="main-preview-card">
+          <!-- Specular Glare Layer -->
+          <div class="specular-3d-glare"></div>
+
+          <div class="preview-window-bar">
+            <span class="traffic-light traffic-red"></span>
+            <span class="traffic-light traffic-yellow"></span>
+            <span class="traffic-light traffic-green"></span>
+            <span class="preview-title">smart-notes-assistant.app — Interactive Workspace</span>
+            <div style="margin-left:auto; display:flex; align-items:center; gap:8px;">
+              <span class="preview-status-chip">
+                <span class="live-pulse-dot"></span> 98.4% Accuracy
+              </span>
+            </div>
+          </div>
+
+          <div class="preview-grid">
+            <div class="preview-sidebar">
+              <h4>Workspaces</h4>
+              <div class="preview-nav-item active">
+                <span>All Notes</span>
+                <span class="badge" style="background:#EDE8F7; color:var(--purple-accent); font-weight:600;">12</span>
+              </div>
+              <div class="preview-nav-item">
+                <span>Study</span>
+                <span class="badge badge-study">3</span>
+              </div>
+              <div class="preview-nav-item">
+                <span>Money</span>
+                <span class="badge badge-money">3</span>
+              </div>
+              <div class="preview-nav-item">
+                <span>Travel</span>
+                <span class="badge badge-travel">3</span>
+              </div>
+              <div class="preview-nav-item">
+                <span>Shopping</span>
+                <span class="badge badge-shopping">3</span>
+              </div>
+            </div>
+
+            <div class="preview-content">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:14px; font-weight:600; display:flex; align-items:center; gap:6px;">
+                  <span>Active Library Notes</span>
+                  <span style="background:#F3F0FE; color:#6C52EE; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px;">LIVE ML</span>
+                </span>
+                <span style="font-size:12px; color:var(--text-secondary); font-family:var(--font-mono);">TF-IDF Classifier: 98.4% Acc</span>
+              </div>
+
+              <!-- Mock Note Cards -->
+              <div class="preview-cards-grid">
+                <div class="preview-note-card">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                    <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">N001</span>
+                    <span class="badge badge-study">Study</span>
+                  </div>
+                  <div style="font-size:13px; line-height:1.4; font-weight:500;">My Python test is on Friday at 10 AM.</div>
+                  <div style="margin-top:10px; font-size:11px; color:#10B981; display:flex; align-items:center; gap:4px;">
+                    <span>⚡ Priority: High</span> • <span>96% Conf</span>
+                  </div>
+                </div>
+
+                <div class="preview-note-card">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                    <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">N006</span>
+                    <span class="badge badge-money">Money</span>
+                  </div>
+                  <div style="font-size:13px; line-height:1.4; font-weight:500;">Move ₹2,000 into the savings account this month.</div>
+                  <div style="margin-top:10px; font-size:11px; color:#6C52EE; display:flex; align-items:center; gap:4px;">
+                    <span>⚡ Priority: Medium</span> • <span>98% Conf</span>
+                  </div>
+                </div>
+
+                <div class="preview-note-card">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                    <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">N007</span>
+                    <span class="badge badge-travel">Travel</span>
+                  </div>
+                  <div style="font-size:13px; line-height:1.4; font-weight:500;">The hotel in Jaipur is booked for Saturday.</div>
+                  <div style="margin-top:10px; font-size:11px; color:#F59E0B; display:flex; align-items:center; gap:4px;">
+                    <span>⚡ Priority: Medium</span> • <span>94% Conf</span>
+                  </div>
+                </div>
+
+                <div class="preview-note-card">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                    <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">N013</span>
+                    <span class="badge badge-shopping">Shopping</span>
+                  </div>
+                  <div style="font-size:13px; line-height:1.4; font-weight:500;">Order fresh groceries and almond milk tonight.</div>
+                  <div style="margin-top:10px; font-size:11px; color:#EC4899; display:flex; align-items:center; gap:4px;">
+                    <span>⚡ Priority: High</span> • <span>97% Conf</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Sleek Interactive Feature Pillars Beneath the Showcase -->
+      <div class="hero-features-trio">
+        <div class="hero-feature-card">
+          <div class="feature-icon-bubble" style="background:#EDE9FE; color:#6C52EE;">🧠</div>
+          <h3>AI Classification</h3>
+          <p>Trained TF-IDF model automatically sorts into Study, Money, Travel &amp; Shopping with 98.4% precision.</p>
+        </div>
+        <div class="hero-feature-card">
+          <div class="feature-icon-bubble" style="background:#ECFAF5; color:#059669;">⚡</div>
+          <h3>Urgent Priority Radar</h3>
+          <p>Extracts dates and deadlines to rank critical work first so nothing slips through the cracks.</p>
+        </div>
+        <div class="hero-feature-card">
+          <div class="feature-icon-bubble" style="background:#EFF5FF; color:#2563EB;">🔒</div>
+          <h3>Zero Data Leakage</h3>
+          <p>Enterprise bcrypt credential security with local isolation and instant vector-space search.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="section-header">
+        <h2>Engineered for Intelligence &amp; Speed</h2>
+        <p>A complete full-stack architecture built with mathematical rigor and clean design principles.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"></path>
+            </svg>
+          </div>
+          <h3>Genuine Machine Learning</h3>
+          <p>Trained Logistic Regression pipeline using currency-preserving TF-IDF vectorization. Achieves 86.0% validation accuracy and 0.854 Macro-F1 across Study, Money, Travel, and Shopping.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+          </div>
+          <h3>Uncertainty Detection</h3>
+          <p>Notes outside the domain (e.g. chores, family) are not forced into wrong labels. A calibrated 50% probability threshold identifies 91.7% of out-of-scope notes as uncertain for review.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <h3>Intelligent Search</h3>
+          <p>Vector-space Cosine Similarity and token-frequency retrieval benchmarked with Hit Rate @ 3 (80.0%). Filters out irrelevant matches below the 5% similarity threshold.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h3>Security &amp; Private Storage</h3>
+          <p>Argon2 password hashing, short-lived JWTs, secure HTTP-only cookies, and MongoDB Atlas database queries enforcing multi-tenant note ownership isolation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+      <div>© 2026 Smart Notes Assistant. All rights reserved.</div>
+    </footer>
+  </div>
+
+  <!-- ========================================================================
+       3. AUTHENTICATION PAGES CONTAINER (Dynamic Template Insertion)
+       ======================================================================== -->
+  <div id="auth-view-container" class="auth-container" style="display:none;"></div>
+
+  <!-- ========================================================================
+       4. AUTHENTICATED APPLICATION WORKSPACE (macOS Window Experience)
+       ======================================================================== -->
+  <div id="app-workspace" style="display:none;">
+    <div class="mac-app-window">
+      <!-- Left Sidebar (Roomy Exact Specification) -->
+      <aside class="app-sidebar roomy-sidebar">
+        <!-- "Create new note" Pill Action Button -->
+        <button class="roomy-create-btn" onclick="Notes.openEditModal()" title="Create New Note">
+          <span>Create new note</span>
+          <div class="create-plus-circle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+        </button>
+
+        <!-- Navigation Menu -->
+        <nav class="sidebar-nav">
+          <div class="nav-link active" id="nav-dashboard" onclick="App.navigateToView('dashboard'); App.closeMobileSidebar();">
+            <div class="nav-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              <span>Overview</span>
+            </div>
+          </div>
+
+          <div class="nav-link" id="nav-notes" onclick="App.navigateToNotes('all', 'all'); App.closeMobileSidebar();">
+            <div class="nav-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+              <span>All Notes</span>
+            </div>
+            <span class="nav-count" id="count-all-notes">0</span>
+          </div>
+
+          <div class="nav-link" id="nav-priority-today" onclick="App.navigateToNotes('all', 'high'); App.closeMobileSidebar();">
+            <div class="nav-left">
+              <span style="font-size:13px; width:16px; text-align:center; display:inline-block;">🔥</span>
+              <span>Today's Priority</span>
+            </div>
+            <span class="nav-count" id="count-priority-high" style="background:#FFE4E6; color:#E11D48; font-weight:700;">0</span>
+          </div>
+
+          <div class="nav-link" id="nav-cat-Study" onclick="App.navigateToNotes('Study'); App.closeMobileSidebar();">
+            <div class="nav-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span>Study</span>
+            </div>
+            <span class="nav-count" id="count-study">0</span>
+          </div>
+
+          <div class="nav-link" id="nav-cat-Money" onclick="App.navigateToNotes('Money'); App.closeMobileSidebar();">
+            <div class="nav-left">
+              <span style="font-weight:700; font-size:15px; width:16px; text-align:center; display:inline-block;">₹</span>
+              <span>Money</span>
+            </div>
+            <span class="nav-count" id="count-money">0</span>
+          </div>
+
+          <div class="nav-link" id="nav-cat-Travel" onclick="App.navigateToNotes('Travel'); App.closeMobileSidebar();">
+            <div class="nav-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"></path></svg>
+              <span>Travel</span>
+            </div>
+            <span class="nav-count" id="count-travel">0</span>
+          </div>
+
+          <div class="nav-link" id="nav-cat-Shopping" onclick="App.navigateToNotes('Shopping'); App.closeMobileSidebar();">
+            <div class="nav-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span>Shopping</span>
+            </div>
+            <span class="nav-count" id="count-shopping">0</span>
+          </div>
+
+          <div class="nav-link" id="nav-analytics" onclick="App.navigateToView('analytics'); App.closeMobileSidebar();">
+            <div class="nav-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              <span>Analytics</span>
+            </div>
+            <span class="nav-badge" style="background:#EDE9FE; color:#6C52EE; font-size:10px; font-weight:700; padding:1px 6px; border-radius:10px;">AI</span>
+          </div>
+
+          <div class="nav-link" id="nav-profile" onclick="App.navigateToView('profile'); App.closeMobileSidebar();">
+            <div class="nav-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              <span>Settings</span>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Sidebar User Card Footer with Logout Action -->
+        <div class="roomy-user-footer">
+          <div class="roomy-user-meta" onclick="App.navigateToView('profile')" title="Profile & Settings">
+            <div class="user-avatar-mini" id="sidebar-user-avatar">Z</div>
+            <div class="roomy-user-info">
+              <div class="roomy-user-name" id="sidebar-user-name">User</div>
+              <div class="roomy-user-email" id="sidebar-user-email">user@domain.com</div>
+            </div>
+          </div>
+          <button class="logout-icon-btn" onclick="Auth.logout()" title="Sign Out / Log Out">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Workspace Stage -->
+      <main class="app-main">
+        <header class="app-header">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <button class="mobile-menu-btn" onclick="App.toggleMobileSidebar()" title="Toggle Navigation">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+            <div class="search-input-wrapper" onclick="App.openSpotlight()" style="cursor:pointer;" title="Press Ctrl + K to search">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" placeholder="Spotlight search (Ctrl + K)..." readonly onclick="App.openSpotlight()" />
+            </div>
+          </div>
+
+          <div class="header-actions" style="display:flex; align-items:center; gap:8px;">
+            <!-- Notification Hub Bell Dropdown -->
+            <div class="notif-dropdown-wrapper" id="notif-dropdown-wrapper">
+              <button class="notif-bell-btn" id="notif-bell-btn" onclick="Notifications.toggleFlyout(event)" title="Notifications & Due Work">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                <span class="notif-count-badge" id="notif-count-badge" style="display:none;">0</span>
+              </button>
+              <div class="notif-flyout" id="notif-flyout" onclick="event.stopPropagation()"></div>
+            </div>
+
+            <button class="cosmos-3d-btn" onclick="ThreeD.openCosmosModal()" title="Explore Notes in 3D Galaxy View">
+              <span>🌌 3D Cosmos</span>
+            </button>
+            <button class="export-hub-btn" onclick="App.openExportModal()" title="Export Notes to Markdown, PDF, or JSON">
+              <span>📥 Export</span>
+            </button>
+            <button class="theme-toggle-btn" onclick="App.toggleTheme()" title="Toggle Midnight Dark / Pastel Day Theme" id="theme-toggle-header">
+              <span class="theme-icon" id="theme-icon-indicator">🌙</span>
+              <span class="theme-text" id="theme-text-indicator">Midnight</span>
+            </button>
+            <button class="zen-mode-btn" onclick="App.openZenMode()" title="Open Distraction-Free Zen Writing Mode">
+              <span>🧘 Zen Mode</span>
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="Notes.openEditModal()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              New Note
+            </button>
+          </div>
+        </header>
+
+        <div class="workspace-scroll-area">
+          <div id="workspace-view-content"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       5. NOTE EDITOR MODAL
+       ======================================================================== -->
+  <div class="modal-backdrop" id="note-modal" onclick="if(event.target===this) Notes.closeModal();">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modal-title" style="font-size:16px;">Create New Note</h3>
+        <button class="icon-btn" onclick="Notes.closeModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="modal-note-id" />
+        <div class="form-group">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <label for="modal-note-text" style="margin:0;">Note Text</label>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <button type="button" class="zen-mode-btn" onclick="App.openZenMode(document.getElementById('modal-note-text').value)" style="padding:3px 9px; font-size:11.5px;" title="Focus on writing in Zen Mode">
+                <span>🧘 Zen</span>
+              </button>
+              <span id="modal-voice-status" class="modal-voice-status" style="display:none;"></span>
+              <button type="button" id="modal-voice-btn" class="modal-voice-dictate-btn" onclick="App.toggleModalVoiceDictation()" title="Click to dictate note by voice">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                <span>Voice Dictate</span>
+              </button>
+            </div>
+          </div>
+          <textarea id="modal-note-text" style="width:100%; min-height:120px; padding:14px; background:#FCFBFF; border:1px solid var(--border-subtle); border-radius:var(--radius-sm); color:var(--text-primary); font-family:inherit; font-size:14px; resize:vertical; outline:none; transition:border-color 0.2s ease;" onfocus="this.style.borderColor='var(--purple-accent)';" onblur="this.style.borderColor='var(--border-subtle)';" placeholder="Enter your note... (e.g. 'Pay the electricity bill by tomorrow')" oninput="Notes.previewClassification(this.value, 'modal-live-preview'); const cc = document.getElementById('modal-char-counter'); if (cc) cc.innerText = this.value.length + ' chars';"></textarea>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div id="modal-live-preview" class="live-classifier-tag" style="min-height:24px;"></div>
+          <span class="char-counter" id="modal-char-counter">0 chars</span>
+        </div>
+
+        <div style="margin-top:14px; padding-top:12px; border-top:1px solid var(--border-subtle);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <label style="font-size:12px; font-weight:600; color:var(--text-dark);">Priority Setting:</label>
+            <span style="font-size:11px; color:var(--text-muted);">Auto detects from time keywords or set custom</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:6px;">
+            <button type="button" class="btn btn-sm btn-primary" id="prio-opt-auto" onclick="App.setModalPriority('auto')" style="font-size:11px; padding:6px 2px; white-space:nowrap;">🤖 Auto (Time)</button>
+            <button type="button" class="btn btn-sm btn-secondary" id="prio-opt-high" onclick="App.setModalPriority('high')" style="font-size:11px; padding:6px 2px; white-space:nowrap;">🔥 High (Today)</button>
+            <button type="button" class="btn btn-sm btn-secondary" id="prio-opt-medium" onclick="App.setModalPriority('medium')" style="font-size:11px; padding:6px 2px; white-space:nowrap;">⚡ Medium (Tmrw)</button>
+            <button type="button" class="btn btn-sm btn-secondary" id="prio-opt-low" onclick="App.setModalPriority('low')" style="font-size:11px; padding:6px 2px; white-space:nowrap;">⏱️ Normal (Flex)</button>
+          </div>
+          <input type="hidden" id="modal-priority-choice" value="auto" />
+        </div>
+
+        <!-- Smart Due Date / Reminder (Optional) -->
+        <div style="margin-top:12px; padding-top:10px; border-top:1px solid var(--border-subtle);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <label for="modal-due-date" style="font-size:12px; font-weight:600; color:var(--text-dark); margin:0;">⏰ Due Date / Reminder (Optional):</label>
+            <span style="font-size:11px; color:var(--text-muted);">Triggers due alerts & countdown badge</span>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <input type="datetime-local" id="modal-due-date" style="flex:1; padding:7px 10px; font-size:12px; border:1px solid var(--border-subtle); border-radius:var(--radius-sm); background:#FCFBFF; color:var(--text-dark);" />
+            <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('modal-due-date').value=''" style="font-size:11px; padding:4px 8px;" title="Clear Due Date">Clear</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="Notes.closeModal()">Cancel</button>
+        <button class="btn btn-primary btn-sm" onclick="App.handleModalSave()">Save Note</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       6. SPOTLIGHT SEARCH COMMAND PALETTE (Ctrl + K)
+       ======================================================================== -->
+  <div class="spotlight-backdrop" id="spotlight-modal" onclick="if(event.target===this) App.closeSpotlight();">
+    <div class="spotlight-box">
+      <div class="spotlight-search-header">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--purple-accent)" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="spotlight-input" placeholder="Type to instantly search notes, keywords, tags..." oninput="App.onSpotlightInput(this.value)" />
+        <span class="spotlight-esc-pill">Esc</span>
+      </div>
+      <div class="spotlight-filters">
+        <button class="sp-filter-chip active" id="sp-filter-all" onclick="App.setSpotlightFilter('all', this)">All Notes</button>
+        <button class="sp-filter-chip" id="sp-filter-high" onclick="App.setSpotlightFilter('high', this)">🔥 High Priority</button>
+        <button class="sp-filter-chip" id="sp-filter-study" onclick="App.setSpotlightFilter('Study', this)">📚 Study</button>
+        <button class="sp-filter-chip" id="sp-filter-money" onclick="App.setSpotlightFilter('Money', this)">₹ Money</button>
+        <button class="sp-filter-chip" id="sp-filter-travel" onclick="App.setSpotlightFilter('Travel', this)">✈️ Travel</button>
+        <button class="sp-filter-chip" id="sp-filter-shopping" onclick="App.setSpotlightFilter('Shopping', this)">🛒 Shopping</button>
+      </div>
+      <div class="spotlight-results" id="spotlight-results-list"></div>
+      <div class="spotlight-footer">
+        <span>Press <kbd>Ctrl</kbd> + <kbd>K</kbd> anywhere</span>
+        <span>Click note to edit • <kbd>Esc</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       7. AI WORKSPACE EXECUTIVE SUMMARY MODAL
+       ======================================================================== -->
+  <div class="modal-backdrop" id="ai-summary-modal" onclick="if(event.target===this) App.closeAiSummaryModal();">
+    <div class="modal-box" style="max-width:560px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:18px;">✨</span>
+          <h3 style="font-size:16px;">AI Workspace Executive Summary</h3>
+        </div>
+        <button class="icon-btn" onclick="App.closeAiSummaryModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="ai-summary-content" style="max-height:420px; overflow-y:auto; line-height:1.6; font-size:13.5px;"></div>
+      <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center;">
+        <button class="btn btn-secondary btn-sm" onclick="App.copyAiSummary()">📋 Copy Summary</button>
+        <button class="btn btn-primary btn-sm" onclick="App.exportAllNotes()">📥 Export Notes (.md)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       8. ZEN FOCUS DISTRACTION-FREE WRITER MODAL
+       ======================================================================== -->
+  <div class="zen-backdrop" id="zen-modal">
+    <div class="zen-container">
+      <div class="zen-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:22px;">🧘</span>
+          <div>
+            <h2 style="font-size:17px; margin:0; font-weight:700;">Zen Focus Mode</h2>
+            <div style="font-size:12px; color:var(--text-muted);">Distraction-free thought sanctuary with live ML insights</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button class="zen-ambient-btn" id="zen-ambient-toggle" onclick="App.toggleZenAmbientAudio()" title="Peaceful Ambient Sound">
+            <span id="zen-ambient-icon">🌧️</span>
+            <span id="zen-ambient-label">Rain Audio: Off</span>
+          </button>
+          <button class="btn btn-secondary btn-sm" onclick="App.closeZenMode()">Exit Zen Mode</button>
+          <button class="btn btn-primary btn-sm" onclick="App.saveFromZenMode()">Save Note</button>
+        </div>
+      </div>
+      <div class="zen-body">
+        <textarea id="zen-textarea" placeholder="Start typing your thoughts in complete serenity... (Press Esc to exit)" oninput="App.onZenInput(this.value)"></textarea>
+      </div>
+      <div class="zen-footer">
+        <div class="zen-stats">
+          <span id="zen-words-count">0 words</span> • 
+          <span id="zen-chars-count">0 chars</span> • 
+          <span id="zen-reading-time">~0 min read</span>
+        </div>
+        <div id="zen-live-preview" style="font-size:12px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       8. 3D THOUGHT COSMOS MODAL (Interactive 360° Galaxy)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="cosmos-modal" onclick="if(event.target===this) ThreeD.closeCosmosModal();">
+    <div class="cosmos-box">
+      <div class="cosmos-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:22px;">🌌</span>
+          <div>
+            <h2 style="font-size:17px; margin:0; font-weight:700;">3D Thought Cosmos</h2>
+            <div style="font-size:12px; color:var(--text-muted);">Explore your notes in a 360° neural galaxy. Drag to orbit, scroll to zoom.</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button class="btn btn-secondary btn-sm" onclick="ThreeD.closeCosmosModal()">Close Galaxy</button>
+        </div>
+      </div>
+      <div class="cosmos-body">
+        <canvas id="cosmos-canvas"></canvas>
+        <div class="cosmos-instructions-overlay">
+          <span>🖱️ Click & Drag to Rotate 360°</span> • 
+          <span>🔍 Scroll / Pinch to Zoom</span> • 
+          <span>🔮 Colored by AI Category</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       9. MULTI-FORMAT EXPORT HUB MODAL
+       ======================================================================== -->
+  <div class="modal-backdrop" id="export-modal" onclick="if(event.target===this) App.closeExportModal();">
+    <div class="export-box">
+      <div class="export-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:22px;">📥</span>
+          <div>
+            <h2 style="font-size:17px; margin:0; font-weight:700;">Multi-Format Export Hub</h2>
+            <div style="font-size:12px; color:var(--text-muted);">Download, backup, or print your notes anytime in your preferred format.</div>
+          </div>
+        </div>
+        <button class="icon-btn" onclick="App.closeExportModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="export-body">
+        <div class="export-grid">
+          <!-- Markdown Export Card -->
+          <div class="export-option-card" onclick="App.exportNotesMarkdown()">
+            <div class="export-icon-box" style="background:#F0FDF4; color:#10B981;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </div>
+            <h4>Markdown (.md)</h4>
+            <p>Export notes grouped by category, timestamps, and priority tags in standard Markdown format.</p>
+            <button class="btn btn-primary btn-sm" style="width:100%; margin-top:12px;" onclick="event.stopPropagation(); App.exportNotesMarkdown();">Download .md</button>
+          </div>
+
+          <!-- Printable / PDF Card -->
+          <div class="export-option-card" onclick="App.printCleanNotes()">
+            <div class="export-icon-box" style="background:#EEF2FF; color:#4F46E5;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            </div>
+            <h4>Print / Save as PDF</h4>
+            <p>Generate a clean, distraction-free printable document or PDF with professional formatting.</p>
+            <button class="btn btn-secondary btn-sm" style="width:100%; margin-top:12px;" onclick="event.stopPropagation(); App.printCleanNotes();">Print / PDF</button>
+          </div>
+
+          <!-- JSON Backup Card -->
+          <div class="export-option-card" onclick="App.exportNotesJSON()">
+            <div class="export-icon-box" style="background:#FFFBEB; color:#F59E0B;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+            </div>
+            <h4>Raw JSON Backup</h4>
+            <p>Complete JSON export of note metadata, IDs, classification confidences, and timestamps.</p>
+            <button class="btn btn-secondary btn-sm" style="width:100%; margin-top:12px;" onclick="event.stopPropagation(); App.exportNotesJSON();">Download JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Core JavaScript Modules with Cache-Busting -->
+  <script src="/static/js/auth.js?v=4.3"></script>
+  <script src="/static/js/notes.js?v=4.5"></script>
+  <script src="/static/js/app.js?v=4.3"></script>
+  <script src="/static/js/threeD.js?v=4.3"></script>
+  <script src="/static/js/notifications.js?v=4.3"></script>
+
+  <script>
+    App.setModalPriority = function(prio) {
+      const input = document.getElementById('modal-priority-choice');
+      if (input) input.value = prio;
+      ['auto', 'high', 'medium', 'low'].forEach(k => {
+        const btn = document.getElementById('prio-opt-' + k);
+        if (!btn) return;
+        if (k === prio) {
+          btn.className = 'btn btn-sm btn-primary';
+          btn.style.background = 'var(--purple-vibrant)';
+          btn.style.color = '#FFFFFF';
+        } else {
+          btn.className = 'btn btn-sm btn-secondary';
+          btn.style.background = '#FFFFFF';
+          btn.style.color = 'var(--text-dark)';
+        }
+      });
+    };
+
+    // Handle Save in Modal
+    App.handleModalSave = async function() {
+      const noteId = document.getElementById('modal-note-id').value;
+      const text = document.getElementById('modal-note-text').value.trim();
+      const choice = (document.getElementById('modal-priority-choice') || {}).value || 'auto';
+      const dueDate = (document.getElementById('modal-due-date') || {}).value || '';
+      if (!text) {
+        App.showToast('Please enter note text.', 'error');
+        return;
+      }
+      let res;
+      if (noteId) {
+        res = await Notes.updateNote(noteId, text);
+        if (res) {
+          if (choice !== 'auto') {
+            localStorage.setItem('note_prio_' + noteId, choice);
+          } else {
+            localStorage.removeItem('note_prio_' + noteId);
+          }
+          if (dueDate) {
+            localStorage.setItem('note_due_' + noteId, dueDate);
+          } else {
+            localStorage.removeItem('note_due_' + noteId);
+          }
+        }
+      } else {
+        res = await Notes.saveNewNote(text);
+        if (res && res.note_id) {
+          if (choice !== 'auto') {
+            localStorage.setItem('note_prio_' + res.note_id, choice);
+          }
+          if (dueDate) {
+            localStorage.setItem('note_due_' + res.note_id, dueDate);
+          }
+        }
+      }
+      Notes.closeModal();
+      App.render();
+    };
+  </script>
+
+  <!-- Simple & Elegant Preloader Engine -->
+  <script src="/static/js/preloader.js?v=5.1"></script>
+</body>
+</html>
+

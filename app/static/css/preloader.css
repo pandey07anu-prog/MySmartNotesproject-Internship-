@@ -1,0 +1,166 @@
+/* ==========================================================================
+   SMART NOTES ASSISTANT — SIMPLE & ELEGANT PRELOADER
+   Visual Palette: Soft Lavender (#E9E4FF), Light Purple (#D9D0FF), 
+   Purple Accent (#8C78EA), Periwinkle (#B9C9FF), Mint Aqua (#B9F0E8), White (#FFFFFF)
+   Background: #F7F5FF | Text: #26233A
+   ========================================================================== */
+
+#cinematic-3d-preloader,
+.simple-preloader-root {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background: #F7F5FF;
+  background-image: 
+    radial-gradient(at 25% 25%, rgba(233, 228, 255, 0.85) 0px, transparent 55%),
+    radial-gradient(at 75% 75%, rgba(185, 240, 232, 0.45) 0px, transparent 55%),
+    radial-gradient(at 50% 50%, rgba(217, 208, 255, 0.35) 0px, transparent 65%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: all;
+  cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#cinematic-3d-preloader.preloader-hidden,
+.simple-preloader-root.preloader-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: scale(1.02);
+}
+
+.simple-preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  max-width: 420px;
+  user-select: none;
+  animation: preloaderContentPop 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes preloaderContentPop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Icon Wrap with Soft Ambient Pulse */
+.simple-preloader-icon-wrap {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.simple-preloader-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 24px;
+  background: radial-gradient(circle, rgba(140, 120, 234, 0.35) 0%, rgba(185, 240, 232, 0.15) 70%, transparent 100%);
+  animation: preloaderPulseRing 2s ease-in-out infinite alternate;
+  filter: blur(8px);
+}
+
+@keyframes preloaderPulseRing {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+}
+
+.simple-preloader-icon {
+  position: relative;
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #8C78EA 0%, #6C52EE 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 12px 28px -6px rgba(140, 120, 234, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.85) inset;
+}
+
+.simple-preloader-icon svg {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Typography */
+.simple-preloader-title {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #26233A;
+}
+
+.simple-preloader-tagline {
+  margin: 0 0 20px 0;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #7E7A96;
+}
+
+/* Minimalist Progress Track */
+.simple-preloader-track {
+  width: 130px;
+  height: 3px;
+  border-radius: 99px;
+  background: rgba(140, 120, 234, 0.14);
+  overflow: hidden;
+  position: relative;
+}
+
+.simple-preloader-bar {
+  width: 0%;
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #8C78EA 0%, #B9C9FF 50%, #B9F0E8 100%);
+  box-shadow: 0 0 8px rgba(140, 120, 234, 0.5);
+  animation: preloaderFillBar 3.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes preloaderFillBar {
+  0% {
+    width: 0%;
+  }
+  30% {
+    width: 35%;
+  }
+  65% {
+    width: 75%;
+  }
+  90% {
+    width: 92%;
+  }
+  100% {
+    width: 100%;
+  }
+}
